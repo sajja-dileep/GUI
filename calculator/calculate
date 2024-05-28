@@ -1,0 +1,99 @@
+from tkinter import messagebox
+from tkinter import simpledialog
+from tkinter import *
+
+
+class Emp:
+    empID=0
+    def _init_(self):
+        self.empID= Emp.empID+1
+        self.empName=simpledialog.askstring("Emp Details:","Enter Employee Name:")
+        self.empPass="123"
+
+manager=Emp()
+
+def login():
+    UserType=entUserType.get()
+
+    if(UserType=="Employee" or UserType=="employee"):
+
+        if(entUserID.get()=="manger" and entpass.get() =="123"):
+
+            btnLogIn.config(state=DISABLED)
+            btnAddcust.config(state=ACTIVE)
+            btnRemcust.config(state=ACTIVE)
+            btnPrintCust.config(state=ACTIVE)
+            btnLogout.config(state=ACTIVE)
+
+        else:
+            messagebox.showerror("Log In error","Invalid User Id or password!")
+def Logout():
+    lblMessage.config(text="")
+    btnPrintCust.config(state=DISABLED)
+    btnAddcust.config(state=DISABLED)
+    btnRemcust.config(state=DISABLED)
+    entUserID.delete(0,END)
+    entpass.delete(0,'end')
+    entUserType.delete(0,END)
+    btnLogIn.config(state=ACTIVE)
+    btnLogout.config(state=DISABLED)
+        
+            
+
+
+
+
+
+    
+window=Tk()
+window.geometry("900x900")
+window.title("Venkat Bank of India")
+
+
+
+lblUserID = Label (window, text="Enter your User ID or Account Number",bg="ORANGE",fg= "White")
+lblUserID.grid(row=0, column=0)
+
+entUserID = Entry(window)
+entUserID.grid(row=0, column=1)
+
+lblpass = Label (window, text="Enter your Password")
+lblpass.grid(row=1, column=0)
+entpass = Entry(window)
+entpass.grid(row = 1, column = 1)
+
+lblUserType =Label(window,text="Enter User Type(Employee or Customer):",bg="GREEN",fg= "White")
+lblUserType.grid(row=2, column=0)
+
+entUserType = Entry(window)
+entUserType.grid(row=2,column=1)
+
+btnLogIn = Button(window, text="LogIn",command= login)
+btnLogIn.grid(row=3,column=1)
+
+lblMessage=Label(window,text="")
+lblMessage.grid(row=4,column=1)
+
+btnAddcust = Button(window,text ="Add New Customer",state=DISABLED,bg="red",fg="white")
+btnAddcust.grid(row=5,column=2)
+
+btnRemcust = Button(window,text="Remove Customer",state=DISABLED,bg="Blue",fg="white")
+btnRemcust.grid(row=6,column=2)
+
+btnPrintCust = Button(window,text="Print Report",state=DISABLED)
+btnPrintCust.grid(row=7,column=2)
+
+btnLogout = Button(window,text="LOGOUT",state=DISABLED)
+btnLogout.grid(row=8,column=2)
+
+
+
+cust_list=Listbox(window,selectmode=SINGLE)
+cust_list.grid(row=9,column=1)
+cust_list.grid_remove()
+
+okbutt=Button(window,text="OK Proceed")
+okbutt.grid(row=10,column=1)
+okbutt.grid_remove()
+
+window.mainloop()

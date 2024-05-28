@@ -1,0 +1,51 @@
+import tkinter
+from tkinter import *
+from tkinter import messagebox
+
+def loginnn():
+    pass
+
+kesava=Tk()
+kesava.title("SINDHU BANK OF INDIA")
+kesava.geometry("1000x1000")
+
+lblusername=Label(kesava,text="ENTER YOUR USER_ID OR ACCOUNT_NUMBER :")
+lblusername.grid(row=0,column=0)
+etyusername=Entry(kesava)
+etyusername.grid(row=0,column=1)
+
+lblpass=Label(kesava,text="ENTER YOUR PASSWORD :")
+lblpass.grid(row=1,column=0)
+etypass=Entry(kesava)
+etypass.grid(row=1,column=1)
+
+lblusertype=Label(kesava,text="PLEASE ENTER THE USER TYPE :")
+lblusertype.grid(row=2,column=0)
+etyusertype=Entry(kesava)
+etyusertype.grid(row=2,column=1)
+
+btnlogin=Button(kesava,text="LOGIN",command=loginnn)
+btnlogin.grid(row=3,column=1)
+
+btnlogin=Button(kesava,text="ADD NEW CUSTOMER",state=DISABLED)
+btnlogin.grid(row=5,column=2)
+
+btnlogin=Button(kesava,text="REMOVE CUSTOMER",state=DISABLED)
+btnlogin.grid(row=6,column=2)
+
+btnlogin=Button(kesava,text="PRINT REPORT",state=DISABLED)
+btnlogin.grid(row=7,column=2)
+
+btnlogin=Button(kesava,text="LOGIN OUT",state=DISABLED)
+btnlogin.grid(row=8,column=2)
+
+
+
+cust_list=Listbox(kesava,selectmode=SINGLE)
+cust_list.grid(row=9,column=1)
+
+okbutt=Button(kesava,text="OK PROCEED")
+
+
+
+kesava.mainloop()
